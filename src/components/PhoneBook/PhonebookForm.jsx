@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { object, string } from 'yup';
@@ -6,11 +6,8 @@ import { Formik } from 'formik';
 import { Forma, Input, Btn, Error } from './PhonebookFormStyle';
 
 export const PhonebookForm = ({ addContact }) => {
-  const [initialValues, setInitialValues] = useState({ name: '', number: '' });
-  
-  useEffect(() => {
-    setInitialValues({ name: '', number: '' });
-  }, []);
+  const [initialValues] = useState({ name: '', number: '' });
+
   
   const userSchema = object({
     name: string().required(),
